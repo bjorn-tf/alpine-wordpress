@@ -27,7 +27,7 @@ RUN rm -rf /var/www/* && mkdir /var/www/html && chown -R www-data:www-data /var/
 
 VOLUME ["/var/www/html"]
 
-ENV WORDPRESS_CLI_VERSION 1.5.0
+ENV WORDPRESS_CLI_VERSION 1.5.1
 RUN curl -o /usr/local/bin/wp-cli -fSL "https://github.com/wp-cli/wp-cli/releases/download/v${WORDPRESS_CLI_VERSION}/wp-cli-${WORDPRESS_CLI_VERSION}.phar" && \
     chmod +x /usr/local/bin/wp-cli
 COPY nginx.conf /etc/nginx/
