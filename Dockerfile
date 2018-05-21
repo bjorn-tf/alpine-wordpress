@@ -17,7 +17,7 @@ RUN sed -i  -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' \
             -e 's/expose_php = On/expose_php = Off/g' \
     /etc/php7/php.ini
 
-ENV WORDPRESS_VERSION 4.9.4
+ENV WORDPRESS_VERSION 4.9.6
 RUN curl -fSL "https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz" | \
     tar xzf - -C /usr/local/share/ && \
     chown -R www-data:www-data /usr/local/share/wordpress
