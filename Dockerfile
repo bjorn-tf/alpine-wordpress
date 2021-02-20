@@ -1,8 +1,8 @@
-FROM alpine:3.12.0
+FROM alpine:3.13.2
 
 LABEL architecture="amd64/x86_64" \
-    alpine-version="3.12.0" \
-    php-version="7.3.18" \
+    alpine-version="3.13.2" \
+    php-version="7.4.15" \
     nginx-version="1.18.0"
 
 RUN addgroup -g 82 -S www-data && adduser -u 82 -D -S -H -G www-data www-data
@@ -23,7 +23,7 @@ RUN sed -i  -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' \
             -e 's/expose_php = On/expose_php = Off/g' \
     /etc/php7/php.ini
 
-ENV WORDPRESS_VERSION 5.4.2
+ENV WORDPRESS_VERSION 5.6.1
 RUN curl -fSL "https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz" | \
     tar xzf - -C /usr/local/share/ && \
     chown -R www-data:www-data /usr/local/share/wordpress
